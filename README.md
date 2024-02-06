@@ -1,8 +1,37 @@
-# React + Vite
+#  Destination Wanderlust 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Date: 2/6/2024
 
-Currently, two official plugins are available:
+[Live site]() deployed on Heroku 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### By Rachel Carleton [GitHub](https://github.com/rachcarleton-ga), [Linkedin](https://www.linkedin.com/in/rachcarleton/) 
+
+
+[GitHub Frontend](https://github.com/rachcarleton-ga/project-four-frontend), [GitHub Backend](https://github.com/rachcarleton-ga/Project-four-backend), [Trello](https://trello.com/b/FdLsRF25/world-traveler), [ERD](https://lucid.app/lucidchart/12cdbb10-b960-41e5-9ce7-55dada4d51b0/edit?invitationId=inv_024e44b0-bbcb-4ae2-8976-beec94f1141f&page=0_0#) [Component Hierarchy Diagram](https://lucid.app/lucidchart/d54b704f-b54d-4d91-91b5-131677f0c5cb/edit?beaconFlowId=4D99131812EEBED4&invitationId=inv_2a0689a8-b88a-404e-8f82-42178ae0a490&page=0_0#)
+
+
+### **_Description_**
+***
+Destination Wanderlust is a full stack MERN application with full CRUD operations that allows users to create and view view libraries of destinations that they have traveled to and dream of traveling to. Once adding a destination that a user has traveled to, they will have the option to post a journal entry with photos, recording and preserving their memories from their travels.
+
+**_Features_**
+
+- Index of destinations the user has traveled to
+- Journal entry option under each destination that the user has traveled to
+- Index of destinations the user would like to travel to 
+- Nav Bar
+
+**_Post MVP_**
+
+- User sign up 
+- Location API for Location Library
+
+**_Technologies Used_**
+
+- MongoDB
+- Express.js
+- React
+- Node.js
+
+**_Credits_**
+[]()
