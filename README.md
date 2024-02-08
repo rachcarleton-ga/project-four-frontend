@@ -7,7 +7,7 @@
 #### By Rachel Carleton [GitHub](https://github.com/rachcarleton-ga), [Linkedin](https://www.linkedin.com/in/rachcarleton/) 
 
 
-[GitHub Frontend](https://github.com/rachcarleton-ga/project-four-frontend), [GitHub Backend](https://github.com/rachcarleton-ga/Project-four-backend), [Trello](https://trello.com/b/FdLsRF25/world-traveler), [ERD](https://lucid.app/lucidchart/12cdbb10-b960-41e5-9ce7-55dada4d51b0/edit?invitationId=inv_024e44b0-bbcb-4ae2-8976-beec94f1141f&page=0_0#) [Component Hierarchy Diagram](https://lucid.app/lucidchart/d54b704f-b54d-4d91-91b5-131677f0c5cb/edit?beaconFlowId=4D99131812EEBED4&invitationId=inv_2a0689a8-b88a-404e-8f82-42178ae0a490&page=0_0#)
+[GitHub Frontend](https://github.com/rachcarleton-ga/project-four-frontend), [GitHub Backend](https://github.com/rachcarleton-ga/Project-four-backend), [Trello](https://trello.com/b/FdLsRF25/world-traveler), [ERD](https://lucid.app/lucidchart/12cdbb10-b960-41e5-9ce7-55dada4d51b0/edit?invitationId=inv_024e44b0-bbcb-4ae2-8976-beec94f1141f&page=0_0#), & [Component Hierarchy Diagram](https://lucid.app/lucidchart/d54b704f-b54d-4d91-91b5-131677f0c5cb/edit?beaconFlowId=4D99131812EEBED4&invitationId=inv_2a0689a8-b88a-404e-8f82-42178ae0a490&page=0_0#)
 
 
 ### **_Description_**
