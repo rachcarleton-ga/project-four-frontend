@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { CheckSession } from './services/Auth'
+import Nav from './components/Nav'
+import Register from './components/Register'
+import SignIn from './components/SignIn'
+import Home from './components/Home'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [user, setUser] = useState(null)
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+      <div className='App'>
+       <Nav 
+       user={user}
+       handleLogOut={handleLogOut}
+       />
+       <main>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
+          <Route path="/register" element={<Register />}/>
+          <Route/>
+        </Routes>
+       </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+   
   )
 }
 
