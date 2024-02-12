@@ -1,12 +1,16 @@
+import { Link } from 'react-router-dom'
 
-
-const Goal = () => {
+const Goal = ({goal}) => {
 
     return (
-        <div>
+        <div className='location-grid'>
             <h1>
-                Welcome to your dream travel destinations!
+                Dream Destinations:
             </h1>
+            {}
+            <div>
+
+            </div>
         </div>
     )
 }
