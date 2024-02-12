@@ -3,38 +3,38 @@ import { useNavigate } from "react-router-dom"
 import { useState} from 'react'
 import Client from "../services/api"
 
-const DestinationForm = (props) => {
+const GoalForm = (props) => {
   let navigate = useNavigate()
 
-  const [newDestination, setNewDestination] = useState({
+  const [newGoal, setNewGoal] = useState({
     location: '',
-    image: '',
-    description: '',
+    date: '',
+    picture: '',
   })
   
   const handleSubmit = async(e) => {
     e.preventDefault()
-    let res = await Client.post('/destinations', newDestination)
-    props.getDestination()
-    navigate('/destinations')
+    let res = await Client.post('/goal', newGoal)
+    props.getGoal()
+    navigate('/goal')
     
   }
 
   const handleChange = (e) => {
-    setNewDestination({ ...newDestination, [e.target.name]: e.target.value })
+    setNewGoal({ ...newGoal, [e.target.name]: e.target.value })
   }
 
   return (
     <div>
-    <h1>Add A New Destination</h1>
+    <h1>Add A New Dream Destination</h1>
     <form onSubmit={ handleSubmit }>
-      <input type="text" value={newDestination.location} onChange={handleChange} name='location' placeholder='location' />
-      <input type="text" value={newDestination.image} onChange={ handleChange} name='image' placeholder='image' />
-      <input type="text" value={newDestination.description} onChange={handleChange} name='description' placeholder= 'description' />
+      <input type="text" value={newGoal.location} onChange={handleChange} name='location' placeholder='location' />
+      <input type="text" value={newGoal.date} onChange={ handleChange} name='date' placeholder='date' />
+      <input type="text" value={newGoal.picture} onChange={handleChange} name='picture' placeholder= 'picture' />
       <button type="submit">Submit</button>
     </form>
     </div>
   )
 }
 
-export default DestinationForm
+export default GoalForm
