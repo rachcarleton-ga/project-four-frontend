@@ -5,6 +5,10 @@ import Nav from './components/Nav'
 import Register from './components/Register'
 import SignIn from './components/SignIn'
 import Home from './components/Home'
+import Arrived from './components/Arrived'
+import Goal from './components/Goal'
+import GoalForm from './components/GoalForm'
+import ArrivedForm from './components/ArrivedForm'
 import './App.css'
 
 function App() {
@@ -42,7 +46,8 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
-          <Route/>
+          <Route path="/arrived" element={<ArrivedForm/>}/>
+          <Route path="/goal" element={<GoalForm/>}/>
         </Routes>
        </main>
       </div>
