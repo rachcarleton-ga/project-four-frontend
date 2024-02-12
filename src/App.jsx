@@ -46,8 +46,10 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/arrived" element={<ArrivedForm/>}/>
-          <Route path="/goal" element={<GoalForm/>}/>
+          <Route path="/arrived" element={<Arrived />}/>
+          <Route path="/goal" element={<Goal />}/>
+          <Route path="/arrived/:id" element={<ArrivedForm/>}/>
+          <Route path="/goal/:id" element={<GoalForm/>}/>
         </Routes>
        </main>
       </div>

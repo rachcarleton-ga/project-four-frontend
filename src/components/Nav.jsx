@@ -23,21 +23,21 @@ const Nav = ({ user, handleLogOut }) => {
 
   const publicOptions = (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/register">Register</Link>
-      <Link to="/signin">Sign In</Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/signin">Sign In</NavLink>
     </nav>
   )
 
   return (
     <header>
-      <Link to="/">
+      <NavLink to="/">
         <div className="logo-wrapper" alt="logo">
           <img
 
           />
         </div>
-      </Link>
+      </NavLink>
       {user ? userOptions : publicOptions}
     </header>
   )

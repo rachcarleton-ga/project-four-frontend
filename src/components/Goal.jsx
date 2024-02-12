@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Goal = ({goal}) => {
 
@@ -9,11 +9,11 @@ const Goal = ({goal}) => {
             </h1>
             {goal.map(destination => (
                     <div className='destination-card' key={destination.id}>
-                    <Link to={`${destination._id}`}>
+                    <NavLink to={`${destination._id}`}>
                     <h2>{destination.location}</h2>
                     <h3>{destination.description}</h3>
                     <img className="destination-image" src={destination.image} alt={destination.location} />
-                    </Link>
+                    </NavLink>
                     </div>
                 ))}
         </div>
