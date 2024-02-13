@@ -30,7 +30,6 @@ function App() {
   }, [])
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
@@ -45,6 +44,19 @@ function App() {
   useEffect(() => {
       getArrived();
   }, [])
+
+
+  const [goal, setGoal] = useState(null);
+
+  const getGoal = async () => {
+      let res = await Client.get(`/goal/`);
+      setGoal(res.data);
+  };
+      
+  useEffect(() => {
+      getGoal();
+  }, [])
+
 
 
   return (
