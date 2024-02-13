@@ -3,18 +3,17 @@ import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import ArrivedForm from './ArrivedForm'
 
-const Arrived = (props) => {
-    // let { id } =  useParams();
-    // const [arrived, setArrived] = useState(null);
+const Arrived = () => {
+    const [arrived, setArrived] = useState(null);
 
-    // const getArrived = async () => {
-    //     let res = await Client.get(`arrived/${id}`);
-    //     setArrived(res.data);
-    // };
+    const getArrived = async () => {
+        let res = await Client.get(`/arrived/`);
+        setArrived(res.data);
+    };
         
-    // useEffect(() => {
-    //     getArrived();
-    // }, (arrived, id))
+    useEffect(() => {
+        getArrived();
+    }, [])
 
     // const handleDelete = async (arrivedId, ArrivedFormId) => {
     //     if (window.confirm('Are you sure you want to delete this post?'))
@@ -32,7 +31,7 @@ const Arrived = (props) => {
             <h1>
                 Welcome to the destinations you have already explored!
             </h1>
-            {arrived.map(arrive => (
+            {arrived && arrived.map(arrive => (
                     <div className='location-card' key={arrive.id}>
                     <NavLink to={`${arrive._id}`}>
                     <h2>{arrive.location}</h2>

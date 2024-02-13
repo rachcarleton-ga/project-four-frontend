@@ -9,6 +9,7 @@ import Arrived from './components/Arrived'
 import Goal from './components/Goal'
 import GoalForm from './components/GoalForm'
 import ArrivedForm from './components/ArrivedForm'
+import ArrivedDetail from './components/ArrivedDetail'
 import './App.css'
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived />}/>
           <Route path="/goal" element={<Goal />}/>
-          <Route path="/arrived/:id" element={<ArrivedForm/>}/>
+          <Route path="/arrived/:id" element={<ArrivedDetail/>}/>
           <Route path="/goal/:id" element={<GoalForm/>}/>
         </Routes>
        </main>

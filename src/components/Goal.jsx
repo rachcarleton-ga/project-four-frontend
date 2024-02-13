@@ -1,4 +1,8 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Client from '../services/api'
+import GoalForm from './GoalForm'
+
 
 const Goal = ({goal}) => {
 
