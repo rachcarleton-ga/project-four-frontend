@@ -10,6 +10,7 @@ import Goal from './components/Goal'
 import GoalForm from './components/GoalForm'
 import ArrivedForm from './components/ArrivedForm'
 import ArrivedDetail from './components/ArrivedDetail'
+import Client from './services/api'
 import './App.css'
 
 function App() {
@@ -35,6 +36,18 @@ function App() {
     localStorage.clear()
   }
 
+  const [arrived, setArrived] = useState(null);
+
+  const getArrived = async () => {
+      let res = await Client.get(`/arrived/`);
+      setArrived(res.data);
+  };
+      
+  useEffect(() => {
+      getArrived();
+  }, [])
+
+
   return (
 
       <div className='App'>
@@ -49,8 +62,8 @@ function App() {
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived arrived={arrived} getArrived={getArrived} /> }/>
           <Route path="/goal" element={<Goal />}/>
-          <Route path="/arrived/:id" element={<ArrivedDetail/>}/>
-          <Route path="/goal/:id" element={<GoalDetail/>}/>
+          <Route path="/arrived/:id" element={<ArrivedDetail arrived={arrived}/>}/>
+          {/* <Route path="/goal/:id" element={<GoalDetail/>}/> */}
         </Routes>
        </main>
       </div>
