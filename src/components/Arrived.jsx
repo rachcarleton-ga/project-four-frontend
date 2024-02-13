@@ -1,6 +1,24 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Client from '../services/api'
+import ArrivedForm from './ArrivedForm'
 
-const Arrived = (arrived) => {
+const Arrived = (arrives, user) => {
+    let { id } =  useParams();
+    const [arrived, setArrived] = useState(null);
+
+    const getArrived = async () => {
+        let res = await Client.get(`arrives/${id}`);
+        setArrived(res.data);
+    };
+        
+    useEffect(() => {
+        getArrived();
+    }, (arrives, id))
+
+    const handleDelete = async (arrivedId, ) => {
+
+    }
 
     return (
         <div>
