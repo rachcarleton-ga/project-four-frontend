@@ -19,9 +19,10 @@ const Arrived = () => {
 
     return (
         <div>
-            <h1>
+            <h3>
                 Welcome to the destinations you have already explored!
-            </h1>
+            </h3>
+            <ArrivedForm getArrived={getArrived}/>
             {arrived && arrived.map(arrive => (
                     <div className='location-card' key={arrive.id}>
                     <NavLink to={`${arrive._id}`}>

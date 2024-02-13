@@ -18,6 +18,11 @@ const ArrivedForm = (props) => {
     props.getArrived()
     navigate('/arrived')
     
+    setNewArrived({
+        location: '',
+        date: '',
+        picture: '',
+    });
   }
 
   const handleChange = (e) => {
