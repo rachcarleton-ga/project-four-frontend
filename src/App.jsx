@@ -7,8 +7,7 @@ import SignIn from './components/SignIn'
 import Home from './components/Home'
 import Arrived from './components/Arrived'
 import Goal from './components/Goal'
-import GoalForm from './components/GoalForm'
-import ArrivedForm from './components/ArrivedForm'
+import GoalDetail from './components/GoalDetail'
 import ArrivedDetail from './components/ArrivedDetail'
 import Client from './services/api'
 import './App.css'
@@ -61,9 +60,9 @@ function App() {
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived arrived={arrived} getArrived={getArrived} /> }/>
-          <Route path="/goal" element={<Goal />}/>
+          <Route path="/goal" element={<Goal goal={goal} getGoal={getGoal}/>}/>
           <Route path="/arrived/:id" element={<ArrivedDetail arrived={arrived}/>}/>
-          {/* <Route path="/goal/:id" element={<GoalDetail/>}/> */}
+          <Route path="/goal/:id" element={<GoalDetail goal={goal}/>}/>
         </Routes>
        </main>
       </div>
