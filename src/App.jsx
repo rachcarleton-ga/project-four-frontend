@@ -10,6 +10,7 @@ import Goal from './components/Goal'
 import GoalDetail from './components/GoalDetail'
 import ArrivedDetail from './components/ArrivedDetail'
 import Client from './services/api'
+import Journal from './components/Journal'
 import './App.css'
 
 function App() {
@@ -57,6 +58,11 @@ function App() {
       getGoal();
   }, [])
 
+  const [journal, setJournal] = useState([]);
+  const getJournal = async () => {
+    let res = await Client.get(`/goal/${id}`);
+    setJournal(res.data)
+  };
 
 
   return (

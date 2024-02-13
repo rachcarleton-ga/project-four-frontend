@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Client from "../services/api";
 import { useParams } from "react-router-dom";
+import Journal from "./Journal";
 
 const ArrivedDetail = ({arrived}) => {
     const [arrive, setArrive] = useState(null);
+    const [journal, setJournal] = useState([]);
     let {id} = useParams()
 
     const getArrive = async () => {
@@ -14,9 +16,15 @@ const ArrivedDetail = ({arrived}) => {
             console.error("Error fetching arrived data:", error)
         }
     };
+    const getJournal = async () => {
+      let res = await Client.get(`/arrived/${id}`);
+      setJournal(res.data)
+    };
+  
         
     useEffect(() => {
         getArrive();
+        getJournal();
     }, [arrived, id])
 
 
