@@ -3,21 +3,26 @@ import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import ArrivedForm from './ArrivedForm'
 
-const Arrived = (arrives, user) => {
+const Arrived = (arrived, user) => {
     let { id } =  useParams();
     const [arrived, setArrived] = useState(null);
 
     const getArrived = async () => {
-        let res = await Client.get(`arrives/${id}`);
+        let res = await Client.get(`arrived/${id}`);
         setArrived(res.data);
     };
         
     useEffect(() => {
         getArrived();
-    }, (arrives, id))
+    }, (arrived, id))
 
-    const handleDelete = async (arrivedId, ) => {
-
+    const handleDelete = async (arrivedId, ArrivedFormId) => {
+        if (window.confirm('Are you sure you want to delete this post?'))
+            try {
+                await Client. delete(`/arrived/${arrivedId}/arrivedForm/${arrivedFormId}`);
+            } catch (error) {
+                console.error('Error deleting post:', error);
+            }
     }
 
     return (
