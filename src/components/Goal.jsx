@@ -1,22 +1,23 @@
-import { NavLink, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import Client from '../services/api'
+import { NavLink } from 'react-router-dom'
+
 import GoalForm from './GoalForm'
 
+const Goal = ({goal, getGoal}) => {
 
-const Goal = ({goal}) => {
+
 
     return (
-        <div className='destination-grid'>
-            <h1>
-                Dream Destinations:
-            </h1>
-            {goal.map(destination => (
-                    <div className='destination-card' key={destination.id}>
-                    <NavLink to={`${destination._id}`}>
-                    <h2>{destination.location}</h2>
-                    <h3>{destination.description}</h3>
-                    <img className="destination-image" src={destination.image} alt={destination.location} />
+        <div>
+            <h3>
+                Welcome to your dream destinations!
+            </h3>
+            <GoalForm getGoal={getGoal}/>
+            { goal && goal.map(goals => (
+                    <div className='location-card' key={goals.id}>
+                    <NavLink to={`${goals._id}`}>
+                    <h2>{goals.location}</h2>
+                    <h3>{goals.date}</h3>
+                    <img className="location-image" src={goals.picture} alt={goals.location} />
                     </NavLink>
                     </div>
                 ))}
