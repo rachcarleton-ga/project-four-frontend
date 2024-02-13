@@ -7,9 +7,10 @@ import SignIn from './components/SignIn'
 import Home from './components/Home'
 import Arrived from './components/Arrived'
 import Goal from './components/Goal'
-import GoalForm from './components/GoalForm'
-import ArrivedForm from './components/ArrivedForm'
+import GoalDetail from './components/GoalDetail'
 import ArrivedDetail from './components/ArrivedDetail'
+import Client from './services/api'
+import Journal from './components/Journal'
 import './App.css'
 
 function App() {
@@ -30,10 +31,39 @@ function App() {
   }, [])
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
+
+  const [arrived, setArrived] = useState(null);
+
+  const getArrived = async () => {
+      let res = await Client.get(`/arrived/`);
+      setArrived(res.data);
+  };
+      
+  useEffect(() => {
+      getArrived();
+  }, [])
+
+
+  const [goal, setGoal] = useState(null);
+
+  const getGoal = async () => {
+      let res = await Client.get(`/goal/`);
+      setGoal(res.data);
+  };
+      
+  useEffect(() => {
+      getGoal();
+  }, [])
+
+  const [journal, setJournal] = useState([]);
+  const getJournal = async () => {
+    let res = await Client.get(`/goal/${id}`);
+    setJournal(res.data)
+  };
+
 
   return (
 
@@ -48,9 +78,9 @@ function App() {
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived arrived={arrived} getArrived={getArrived} /> }/>
-          <Route path="/goal" element={<Goal />}/>
-          <Route path="/arrived/:id" element={<ArrivedDetail/>}/>
-          <Route path="/goal/:id" element={<GoalDetail/>}/>
+          <Route path="/goal" element={<Goal goal={goal} getGoal={getGoal}/>}/>
+          <Route path="/arrived/:id" element={<ArrivedDetail arrived={arrived}/>}/>
+          <Route path="/goal/:id" element={<GoalDetail goal={goal}/>}/>
         </Routes>
        </main>
       </div>

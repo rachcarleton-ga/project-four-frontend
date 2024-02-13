@@ -1,19 +1,8 @@
-import { NavLink, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import Client from '../services/api'
+import { NavLink } from 'react-router-dom'
+
 import ArrivedForm from './ArrivedForm'
 
-const Arrived = () => {
-    const [arrived, setArrived] = useState(null);
-
-    const getArrived = async () => {
-        let res = await Client.get(`/arrived/`);
-        setArrived(res.data);
-    };
-        
-    useEffect(() => {
-        getArrived();
-    }, [])
+const Arrived = ({arrived, getArrived}) => {
 
 
 
@@ -23,7 +12,7 @@ const Arrived = () => {
                 Welcome to the destinations you have already explored!
             </h3>
             <ArrivedForm getArrived={getArrived}/>
-            {arrived && arrived.map(arrive => (
+            { arrived && arrived.map(arrive => (
                     <div className='location-card' key={arrive.id}>
                     <NavLink to={`${arrive._id}`}>
                     <h2>{arrive.location}</h2>

@@ -18,6 +18,11 @@ const GoalForm = (props) => {
     props.getGoal()
     navigate('/goal')
     
+    setNewGoal({
+        location: '',
+        date: '',
+        picture: '',
+    });
   }
 
   const handleChange = (e) => {
