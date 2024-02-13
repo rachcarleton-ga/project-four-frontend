@@ -14,11 +14,11 @@ const GoalForm = (props) => {
   
   const handleSubmit = async(e) => {
     e.preventDefault()
-    let res = await Client.post('/arrived', newArrived)
-    props.getArrived()
-    navigate('/arrived')
+    let res = await Client.post('/goal', newGoal)
+    props.getGoal()
+    navigate('/goal')
     
-    setNewArrived({
+    setNewGoal({
         location: '',
         date: '',
         picture: '',
@@ -26,16 +26,16 @@ const GoalForm = (props) => {
   }
 
   const handleChange = (e) => {
-    setNewArrived({ ...newArrived, [e.target.name]: e.target.value })
+    setNewGoal({ ...newGoal, [e.target.name]: e.target.value })
   }
 
   return (
     <div>
-    <h1>Add A New Explored Destination</h1>
+    <h1>Add A New Dream Destination</h1>
     <form onSubmit={ handleSubmit }>
-      <input type="text" value={newArrived.location} onChange={handleChange} name='location' placeholder='location' />
-      <input type="text" value={newArrived.date} onChange={ handleChange} name='date' placeholder='date' />
-      <input type="text" value={newArrived.picture} onChange={handleChange} name='picture' placeholder= 'picture' />
+      <input type="text" value={newGoal.location} onChange={handleChange} name='location' placeholder='location' />
+      <input type="text" value={newGoal.date} onChange={ handleChange} name='date' placeholder='date' />
+      <input type="text" value={newGoal.picture} onChange={handleChange} name='picture' placeholder= 'picture' />
       <button type="submit">Submit</button>
     </form>
     </div>
