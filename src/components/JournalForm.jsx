@@ -1,11 +1,12 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useState} from 'react'
 import Client from "../services/api"
 
 
 const JournalForm = (props) => {
     let navigate = useNavigate()
+    let {id} =useParams()
     
     const [newJournal, setNewJournal] = useState({
       picture: '',
@@ -15,9 +16,9 @@ const JournalForm = (props) => {
     
     const handleSubmit = async(e) => {
       e.preventDefault()
-      let res = await Client.post('/goal', newJournal)
+      let res = await Client.post(`/journal/arrived/${id}`, newJournal)
       props.getJournal()
-      navigate('/goal')
+      navigate(`/arrived/${id}`)
       
       setNewJournal({
           picture: '',

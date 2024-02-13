@@ -37,6 +37,12 @@ const ArrivedDetail = ({arrived}) => {
             <img className="location-image" src={arrive.picture} alt={arrive.location} />
             <br />
             <JournalForm getJournal={getJournal}/>
+            {journal.arrivedJournal.map(journal =>(
+                <div>
+                
+                    <p><img className="journal-image" src={journal.picture}/>{journal.date}{journal.diary}</p>
+                </div>
+            ))}
             </div>
         </div>
     ): null
