@@ -15,16 +15,7 @@ const Arrived = () => {
         getArrived();
     }, [])
 
-    // const handleDelete = async (arrivedId, ArrivedFormId) => {
-    //     if (window.confirm('Are you sure you want to delete this post?'))
-    //         try {
-    //             await Client. delete(`/arrived/${arrivedId}/arrivedForm/${arrivedFormId}`);
-    //         } catch (error) {
-    //             console.error('Error deleting post:', error);
-    //         }
-    // }
 
-    // const handleUpdate = async () 
 
     return (
         <div>
