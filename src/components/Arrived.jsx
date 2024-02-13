@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-const Arrived = () => {
+const Arrived = (arrived) => {
 
     return (
         <div>
