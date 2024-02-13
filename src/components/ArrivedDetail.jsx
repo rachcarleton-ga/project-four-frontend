@@ -7,24 +7,18 @@ const ArrivedDetail = () => {
     let {id} = useParams()
 
     const getArrived = async () => {
-        let res = await Client.get(`/arrived/${id}`);
-        setArrived(res.data.arrived);
+        try {
+            let res = await Client.get(`/arrived/${id}`);
+            setArrived(res.data.arrived);
+        } catch (error) {
+            console.error("Error fetching arrived data:", error)
+        }
     };
         
     useEffect(() => {
         getArrived();
-    }, [id])
+    }, [arrive, id])
 
-    // const handleDelete = async (arrivedId, ArrivedFormId) => {
-    //     if (window.confirm('Are you sure you want to delete this post?'))
-    //         try {
-    //             await Client. delete(`/arrived/${arrivedId}/arrivedForm/${arrivedFormId}`);
-    //         } catch (error) {
-    //             console.error('Error deleting post:', error);
-    //         }
-    // }
-
-    // const handleUpdate = async () 
 
     return (
         <div>
