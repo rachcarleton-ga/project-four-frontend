@@ -21,6 +21,7 @@ const ArrivedDetail = ({arrived}) => {
     const getJournal = async () => {
       let res = await Client.get(`/journal/arrived/${id}`);
       setJournal(res.data)
+      console.log(res.data)
     };
   
         
@@ -31,7 +32,7 @@ const ArrivedDetail = ({arrived}) => {
 
     const handleDelete = async (journalId) => {
         try {
-            await Client.delete(`/journal/${journalId}`);
+            await Client.delete(`/journal/arrived/${journalId}`);
             const updatedJournals = journal.arrivedJournal.filter(journal => journal._id !== journalId)
             setJournal({arrivedJournal: updatedJournals})
         } catch (error) {
@@ -43,7 +44,8 @@ const ArrivedDetail = ({arrived}) => {
         setEditMode(!editMode)
         if (editMode) {
             const selectedJournal = journal.arrivedJournal.find(
-                (journal => journal._id === journalId);
+                (journal => journal._id === journalId));
+                console.log(selectedJournal)
         setEditedJournal({
             date: selectedJournal.date,
             diary: selectedJournal.diary,
@@ -55,7 +57,7 @@ const ArrivedDetail = ({arrived}) => {
 
     const handleSave = async (journalId) => {
         try {
-            await Client.put(`/journal/${journalId}`, {
+            await Client.put(`/arrived/${journalId}`, {
                 date: editedJournal.date,
                 diary: editedJournal.diary,
             })
@@ -77,7 +79,7 @@ const ArrivedDetail = ({arrived}) => {
             alt={arrive.location} />
             <br />
             <JournalForm getJournal={getJournal}/>
-            {journal.arrivedJournal.map((journal) =>(
+            {journal?.arrivedJournal?.map((journal) =>(
                 <div key={journal.id}>
                     <img className="journal-image" src={journal.picture}/>
                     <p>{journal.date}</p>
@@ -89,7 +91,7 @@ const ArrivedDetail = ({arrived}) => {
                         onChange={(e) =>
                         setEditedJournal({ ...editedJournal, date: e.target.value})
                     }
-                    />
+                    />+
                     <input 
                     type="text" 
                     value={editedJournal.diary}
@@ -103,13 +105,13 @@ const ArrivedDetail = ({arrived}) => {
                     )}
                     {editMode ? (
                         <>
-                        <button onClick={() => handleSave(journal.id)}>Save</button>
-                        <button onClick={() => handleEdit(journal.id)}>Cancel</button>
+                        <button onClick={() => handleSave(journal._id)}>Save</button>
+                        <button onClick={() => handleEdit(journal._id)}>Cancel</button>
                         </>
                     ) : (
                         <>
-                        <button onClick={() => handleEdit(journal.id)}>Edit</button>
-                        <button onClick={() => handleDelete(journal.id)}>Delete</button>
+                        <button onClick={() => handleEdit(journal._id)}>Edit</button>
+                        <button onClick={() => handleDelete(journal._id)}>Delete</button>
                         </>
                     )}
                 </div>
