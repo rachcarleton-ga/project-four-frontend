@@ -21,7 +21,6 @@ const ArrivedDetail = ({arrived}) => {
     const getJournal = async () => {
       let res = await Client.get(`/journal/arrived/${id}`);
       setJournal(res.data)
-      console.log(res.data)
     };
   
         
