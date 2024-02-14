@@ -30,11 +30,16 @@ const ArrivedDetail = ({arrived}) => {
     const handleDelete = async (journalId) => {
         try {
             await Client.delete(`/journal/${journalId}`);
-            getJournal();
+            const updatedJournals = journal.arrivedJournal.filter(journal => journal._id !== journalId)
+            setJournal({arrivedJournal: updatedJournals})
         } catch (error) {
             console.error("Error deleting journal entry", error)
         }
     };
+
+    const handleEdit = (journalId) => {
+        history.push(`/edit-journal/${journalId}`)
+    }
 
     return arrive ? (
         <div>
@@ -50,7 +55,7 @@ const ArrivedDetail = ({arrived}) => {
                     <img className="journal-image" src={journal.picture}/>
                     <p>{journal.date}</p>
                     <p>{journal.diary}</p>
-                    <button>Edit</button>
+                    <button onClick={() => handleEdit(journal.id)}>Edit</button>
                     <button onClick={() => handleDelete(journal.id)}>Delete</button>
                 </div>
             ))}
