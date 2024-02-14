@@ -27,6 +27,14 @@ const ArrivedDetail = ({arrived}) => {
         getJournal();
     }, [id])
 
+    const handleDelete = async (journalId) => {
+        try {
+            await Client.delete(`/journal/${journalId}`);
+            getJournal();
+        } catch (error) {
+            console.error("Error deleting journal entry", error)
+        }
+    };
 
     return arrive ? (
         <div>
