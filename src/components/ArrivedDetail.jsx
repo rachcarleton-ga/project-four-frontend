@@ -46,9 +46,12 @@ const ArrivedDetail = ({arrived}) => {
             <br />
             <JournalForm getJournal={getJournal}/>
             {journal.arrivedJournal.map(journal =>(
-                <div>
-                
-                    <p><img className="journal-image" src={journal.picture}/>{journal.date}{journal.diary}</p>
+                <div key={journal.id}>
+                    <img className="journal-image" src={journal.picture}/>
+                    <p>{journal.date}</p>
+                    <p>{journal.diary}</p>
+                    <button>Edit</button>
+                    <button onClick={() => handleDelete(journal.id)}>Delete</button>
                 </div>
             ))}
             </div>
