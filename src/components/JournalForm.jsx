@@ -32,14 +32,40 @@ const JournalForm = (props) => {
     }
 
     return (
-      <div>
-      <h1>Add a new journal entry</h1>
-      <form onSubmit={ handleSubmit }>
-        <input type="text" value={newJournal.picture} onChange={handleChange} name='picture' placeholder='picture' />
-        <input type="text" value={newJournal.date} onChange={ handleChange} name='date' placeholder='date' />
-        <input type="text" value={newJournal.diary} onChange={handleChange} name='diary' placeholder= 'diary' />
-        <button type="submit">Submit</button>
+      <div className="journal-form-container">
+        <h2>Add a new journal entry</h2>
+      <div className="journal-container">
+        <div className="journal-card-overlay">
+      <form className="signin-form" onSubmit={ handleSubmit }>
+        <div className="input-wrapper">
+        <input 
+        type="text" 
+        value={newJournal.picture} 
+        onChange={handleChange} 
+        name='picture' 
+        placeholder='picture' 
+        />
+        </div>
+        <div className="input-wrapper">
+        <input 
+        type="text" 
+        value={newJournal.date} 
+        onChange={ handleChange} 
+        name='date' placeholder='date' 
+        />
+        </div>
+        <div className="input-wrapper">
+        <input 
+        type="text" 
+        value={newJournal.diary} 
+        onChange={handleChange} 
+        name='diary' 
+        placeholder= 'diary' />
+        </div>
+        <button className="signin-button"type="submit">Submit</button>
       </form>
+        </div>
+      </div>
       </div>
     )
 

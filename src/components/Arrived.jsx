@@ -8,9 +8,9 @@ const Arrived = ({arrived, getArrived}) => {
 
     return (
         <div>
-            <h3>
+            <h1>
                 Welcome to the destinations you have already explored!
-            </h3>
+            </h1>
             <ArrivedForm getArrived={getArrived}/>
             { arrived && arrived.map(arrive => (
                     <div className='location-card' key={arrive.id}>

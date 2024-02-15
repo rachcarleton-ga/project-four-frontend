@@ -7,9 +7,9 @@ const Goal = ({goal, getGoal}) => {
 
     return (
         <div>
-            <h3>
+            <h1>
                 Welcome to your dream destinations!
-            </h3>
+            </h1>
             <GoalForm getGoal={getGoal}/>
             { goal && goal.map(goals => (
                     <div className='location-card' key={goals.id}>

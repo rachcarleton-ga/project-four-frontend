@@ -25,6 +25,44 @@ body {
   font-size: 2vw;
 }
 
+.location-card {
+  padding: 1em;
+  width: 18em;
+  height: 15em;
+  background-color: #ece2d0;
+  border-radius: 0.5em;
+  margin: 1em;
+  justify-content: space-around;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.527);
+  color: white;
+  font-family: 'Georgia';
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.location-card:hover {
+  transform: scale(1.01);
+}
+
+.location-card, .location-image {
+  width: 100%;
+  height: 100%;
+  object-fit: center;
+  box-shadow: inset 0 0 1em rgb(0, 0, 0);
+}
+
+.location-image {
+  display: block;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.airplane {
+  flex-shrink: 10%;
+}
 .travel-image {
   max-width: 100%;
   margin-top: 10vmin;
@@ -55,10 +93,18 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-overlay {
- 
+.journal-container {
+  align-items: center;
+}
+.journal-form-container {
+  text-align: center;
 }
 
+.journal-card-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .centered {
   display: flex;
   justify-content: center;

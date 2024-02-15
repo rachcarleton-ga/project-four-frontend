@@ -23,7 +23,7 @@ const Nav = ({ user, handleLogOut }) => {
       <>
         <NavLink to="/" className="nav-link" 
         onClick={closeMenu}>
-          Home
+          Destination Wanderlust
           </NavLink>
         <NavLink to="/arrived" className="nav-link"
          onClick={closeMenu}>
@@ -31,6 +31,9 @@ const Nav = ({ user, handleLogOut }) => {
             </NavLink>
             <NavLink to="/goal" className="nav-link" 
             onClick={closeMenu}>
+                <svg xmlns="https://image.shutterstock.com/image-vector/airplane-icon-vector-transportation-logo-260nw-1283834365.jpg" width="24" height="24" fill="currentColor" class="airplane" viewBox="0 0 16 16">
+          <path d="M8 .576l1.82 4.405h4.665l-3.573 2.925 1.82 4.405-3.664-2.85L4.488 16 8 13.258l3.512 2.742-.437-1.067-3.665-2.85-3.572 2.925H1.515L3.334.576z"/>
+        </svg>
                 <h4>Dream Destinations </h4>
             </NavLink>
         <NavLink to="/" className="nav-link" 
@@ -44,7 +47,7 @@ const Nav = ({ user, handleLogOut }) => {
   const publicOptions = (
     <>
       <NavLink to="/" className="nav-link"
-      onClick={closeMenu}>Home</NavLink>
+      onClick={closeMenu}>Destination Wanderlust</NavLink>
       <NavLink to="/register" className="nav-link"
       onClick={closeMenu}>Register</NavLink>
       <NavLink to="/signin" className="nav-link"

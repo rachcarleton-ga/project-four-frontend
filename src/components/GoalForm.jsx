@@ -30,14 +30,42 @@ const GoalForm = (props) => {
   }
 
   return (
-    <div>
-    <h1>Add A New Dream Destination</h1>
-    <form onSubmit={ handleSubmit }>
-      <input type="text" value={newGoal.location} onChange={handleChange} name='location' placeholder='location' />
-      <input type="text" value={newGoal.date} onChange={ handleChange} name='date' placeholder='date' />
-      <input type="text" value={newGoal.picture} onChange={handleChange} name='picture' placeholder= 'picture' />
-      <button type="submit">Submit</button>
+    <div className="journal-form-container">
+    <h3>Add A New Dream Destination</h3>
+    <div className="journal-container">
+      <div className="journal-card-overlay">
+    <form className="signin-form" onSubmit={ handleSubmit }>
+      <div className="input-wrapper">
+      <input 
+      type="text" 
+      value={newGoal.location} 
+      onChange={handleChange} 
+      name='location' 
+      placeholder='location' 
+      />
+      </div>
+      <div className="input-wrapper">
+      <input 
+      type="text" 
+      value={newGoal.date} 
+      onChange={ handleChange} 
+      name='date' 
+      placeholder='date' 
+      />
+      </div>
+      <div className="input-wrapper">
+      <input 
+      type="text" 
+      value={newGoal.picture} 
+      onChange={handleChange} 
+      name='picture' 
+      placeholder= 'picture' 
+      />
+      </div>
+      <button className="signin-button" type="submit">Submit</button>
     </form>
+      </div>
+    </div>
     </div>
   )
 }
