@@ -2,22 +2,22 @@ import { useState } from 'react'
 import Client from '../services/api';
 import { useParams } from 'react-router-dom';
 
-const ArrivedJournal = ({journal}) => { 
+const GoalJournal = ({journal}) => { 
     const [journalToBeEdited, setJournalToBeEdited] = useState({});
     const [editMode, setEditMode] = useState(false);
     const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
     const {id } = useParams();
     
     const getJournal = async () => {
-        let res = await Client.get(`/journal/arrived/${id}`);
+        let res = await Client.get(`/journal/goal/${id}`);
         setJournalToBeEdited(res.data)
       };
   
-    const handleDelete = async (journalId) => {
+    const handleDelete = async (journalId) => { 
         try {
-            await Client.delete(`/journal/arrived/${journalId}`);
-            const updatedJournals = journal.arrivedJournal.filter(journal => journal._id !== journalId)
-            setJournalToBeEdited({arrivedJournal: updatedJournals})
+            await Client.delete(`/journal/goal/${journalId}`);
+            const updatedJournals = journal.goalJournal.filter(journal => journal._id !== journalId)
+            setJournalToBeEdited({goalJournal: updatedJournals})
         } catch (error) {
             console.error("Error deleting journal entry", error)
         }
@@ -48,16 +48,19 @@ const ArrivedJournal = ({journal}) => {
     }
 
     const handleSave = async (journalId) => {
-            const res = await Client.put(`/journal/arrived/${journalId}`, {
+        try {
+            const res = await Client.put(`/journal/goal/${journalId}`, {
                 picture: journalToBeEdited.picture,
                 date: journalToBeEdited.date,
                 diary: journalToBeEdited.diary,
             })
-            .then((res)=> {
-                setEditMode(false)
-                setTimeout(()=>getJournal(), 1000)
-                console.log(journalToBeEdited)
-            })
+            console.log(res)
+            setEditMode(false)
+            getJournal()
+            console.log(journalToBeEdited)
+        } catch (error) {
+            console.error("Error updating journal entry", error)
+        } 
     }
 
 
@@ -104,4 +107,4 @@ const ArrivedJournal = ({journal}) => {
 }
 
 
-export default ArrivedJournal
+export default GoalJournal
