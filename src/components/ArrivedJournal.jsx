@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Client from '../services/api';
 import { useParams } from 'react-router-dom';
 
-const ArrivedJournal = ({journal}) => { 
+const ArrivedJournal = ({journal, setEditTrigger}) => { 
     const [journalToBeEdited, setJournalToBeEdited] = useState({});
     const [editMode, setEditMode] = useState(false);
     const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
     const {id } = useParams();
+
     
     const getJournal = async () => {
         let res = await Client.get(`/journal/arrived/${id}`);
@@ -16,8 +17,8 @@ const ArrivedJournal = ({journal}) => {
     const handleDelete = async (journalId) => {
         try {
             await Client.delete(`/journal/arrived/${journalId}`);
-            const updatedJournals = journal.arrivedJournal.filter(journal => journal._id !== journalId)
-            setJournalToBeEdited({arrivedJournal: updatedJournals})
+
+            setEditTrigger(prev => prev + 1); 
         } catch (error) {
             console.error("Error deleting journal entry", error)
         }
@@ -48,17 +49,18 @@ const ArrivedJournal = ({journal}) => {
     }
 
     const handleSave = async (journalId) => {
-            const res = await Client.put(`/journal/arrived/${journalId}`, {
-                picture: journalToBeEdited.picture,
-                date: journalToBeEdited.date,
-                diary: journalToBeEdited.diary,
-            })
-            .then((res)=> {
-                setEditMode(false)
-                setTimeout(()=>getJournal(), 1000)
-                console.log(journalToBeEdited)
-            })
-    }
+      try {
+          await Client.put(`/journal/arrived/${journalId}`, {
+              picture: journalToBeEdited.picture,
+              date: journalToBeEdited.date,
+              diary: journalToBeEdited.diary,
+          });
+          setEditMode(false);
+          setEditTrigger(prev => prev + 1); 
+      } catch (error) {
+          console.error("Error saving the edited journal:", error);
+      }
+  };
 
 
     return (

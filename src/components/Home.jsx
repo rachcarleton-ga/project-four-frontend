@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 
 
-const Home = ( user) => {
+const Home = ({ user}) => {
   let navigate = useNavigate()
 
   return (
     <div className="home-container ">
         <h1>
-            Welcome to Destination Wanderlust {user.userName}!
+            Welcome to Destination Wanderlust {user?.userName}!
         </h1> 
         <h3>
             Your digital diary of all the places you have been and all the places you dream of visiting

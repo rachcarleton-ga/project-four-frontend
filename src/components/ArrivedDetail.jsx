@@ -9,6 +9,7 @@ const ArrivedDetail = ({arrived}) => {
     const [arrive, setArrive] = useState(null);
     const [journal, setJournal] = useState([]);
     let { id } = useParams()
+    const [editTrigger, setEditTrigger] = useState(0);
 
     const getArrive = async () => {
         try {
@@ -27,7 +28,7 @@ const ArrivedDetail = ({arrived}) => {
     useEffect(() => {
         getArrive();
         getJournal();
-    }, [id])
+    }, [editTrigger])
 
     return arrive ? (
         <div>
@@ -40,7 +41,7 @@ const ArrivedDetail = ({arrived}) => {
             <JournalForm getJournal={getJournal}/>
             {console.log(journal.arrivedJournal)}
             {journal.arrivedJournal ? (journal.arrivedJournal.map((journal)=>(
-                <ArrivedJournal journal={journal} />
+                <ArrivedJournal setEditTrigger={setEditTrigger} journal={journal} />
             ))): <p> No journal entries found</p> }
         </div>
         </div>
