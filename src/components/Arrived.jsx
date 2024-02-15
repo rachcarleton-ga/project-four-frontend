@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-
 import ArrivedForm from './ArrivedForm'
 
 const Arrived = ({arrived, getArrived}) => {

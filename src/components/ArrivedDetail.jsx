@@ -19,13 +19,12 @@ const ArrivedDetail = ({arrived}) => {
             console.error("Error fetching arrived data:", error)
         }
     };
+
     const getJournal = async () => {
         let res = await Client.get(`/journal/arrived/${id}`);
         setJournal(res.data)
       };
     
-      
-        
     useEffect(() => {
         getArrive();
         getJournal();

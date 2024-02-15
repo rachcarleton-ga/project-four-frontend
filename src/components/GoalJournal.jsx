@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Client from '../services/api';
 import { useParams } from 'react-router-dom';
 
-const GoalJournal = ({journal}) => { 
+const GoalJournal = ({journal, setEditTrigger}) => { 
     const [journalToBeEdited, setJournalToBeEdited] = useState({});
     const [editMode, setEditMode] = useState(false);
     const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
@@ -16,8 +16,7 @@ const GoalJournal = ({journal}) => {
     const handleDelete = async (journalId) => { 
         try {
             await Client.delete(`/journal/goal/${journalId}`);
-            const updatedJournals = journal.goalJournal.filter(journal => journal._id !== journalId)
-            setJournalToBeEdited({goalJournal: updatedJournals})
+            setEditTrigger(prev => prev + 1); 
         } catch (error) {
             console.error("Error deleting journal entry", error)
         }
@@ -35,7 +34,6 @@ const GoalJournal = ({journal}) => {
         } catch (error) {
             console.error("Error completing edit:", error)
         }
-       
     };
     
     const handleChange = () => {
@@ -49,20 +47,17 @@ const GoalJournal = ({journal}) => {
 
     const handleSave = async (journalId) => {
         try {
-            const res = await Client.put(`/journal/goal/${journalId}`, {
+            await Client.put(`/journal/goal/${journalId}`, {
                 picture: journalToBeEdited.picture,
                 date: journalToBeEdited.date,
                 diary: journalToBeEdited.diary,
             })
-            console.log(res)
-            setEditMode(false)
-            getJournal()
-            console.log(journalToBeEdited)
+            setEditMode(false);
+            setEditTrigger(prev => prev + 1); 
         } catch (error) {
             console.error("Error updating journal entry", error)
         } 
     }
-
 
     return (
 <div>
@@ -105,6 +100,5 @@ const GoalJournal = ({journal}) => {
         </div>
   )
 }
-
 
 export default GoalJournal

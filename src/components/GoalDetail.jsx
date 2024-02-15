@@ -34,7 +34,7 @@ const GoalDetail = ({ goal }) => {
     useEffect(() => {
         getGoals();
         getJournal();
-    }, [id, editTrigger])
+    }, [editTrigger])
 
     return goals ? (
         <div>

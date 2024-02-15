@@ -8,7 +8,6 @@ const ArrivedJournal = ({journal, setEditTrigger}) => {
     const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
     const {id } = useParams();
 
-    
     const getJournal = async () => {
         let res = await Client.get(`/journal/arrived/${id}`);
         setJournalToBeEdited(res.data)
@@ -17,7 +16,6 @@ const ArrivedJournal = ({journal, setEditTrigger}) => {
     const handleDelete = async (journalId) => {
         try {
             await Client.delete(`/journal/arrived/${journalId}`);
-
             setEditTrigger(prev => prev + 1); 
         } catch (error) {
             console.error("Error deleting journal entry", error)
@@ -36,7 +34,6 @@ const ArrivedJournal = ({journal, setEditTrigger}) => {
         } catch (error) {
             console.error("Error completing edit:", error)
         }
-       
     };
     
     const handleChange = () => {
@@ -61,7 +58,6 @@ const ArrivedJournal = ({journal, setEditTrigger}) => {
           console.error("Error saving the edited journal:", error);
       }
   };
-
 
     return (
 <div>
@@ -104,6 +100,5 @@ const ArrivedJournal = ({journal, setEditTrigger}) => {
         </div>
   )
 }
-
 
 export default ArrivedJournal
