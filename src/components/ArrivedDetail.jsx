@@ -8,9 +8,7 @@ import ArrivedJournal from "./ArrivedJournal";
 const ArrivedDetail = ({arrived}) => {
     const [arrive, setArrive] = useState(null);
     const [journal, setJournal] = useState([]);
-    const [editMode, setEditMode] = useState(false);
-    const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
-    let {id} = useParams()
+    let { id } = useParams()
 
     const getArrive = async () => {
         try {
@@ -44,20 +42,6 @@ const ArrivedDetail = ({arrived}) => {
             {journal.arrivedJournal ? (journal.arrivedJournal.map((journal)=>(
                 <ArrivedJournal journal={journal} />
             ))): <p> No journal entries found</p> }
-            {/* {journal && journal.arrivedJournal ? (journal.arrivedJournal.map((journalEntry) =>(
-                <ArrivedJournal
-                key={journalEntry._id}
-                journal={journal}
-                getJournal={getJournal}
-                editMode={editMode}
-                setEditMode={setEditMode}
-                editedJournal={editedJournal}
-                setEditedJournal={setEditedJournal}
-                />
-            ))
-            ) : (
-                <p>No journal entries found</p>
-            )} */}
         </div>
         </div>
     ) : null;
