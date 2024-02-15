@@ -24,6 +24,7 @@ const ArrivedDetail = ({arrived}) => {
         setJournal(res.data)
       };
     
+      
         
     useEffect(() => {
         getArrive();

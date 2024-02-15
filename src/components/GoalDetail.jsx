@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import Client from "../services/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import JournalForm from "./JournalForm";
-import GoalJournal from "./GoalJournal";
+import GoalJournal from "./GoalJournal"
 
 const GoalDetail = ({ goal }) => {
     const [goals, setGoals] = useState(null);
     const [journal, setJournal] = useState([]);
     let { id } = useParams()
+    const navigate = useNavigate()
+    const [editTrigger, setEditTrigger] = useState(0)
 
     const getGoals = async () => {
         try {
@@ -23,10 +25,16 @@ const GoalDetail = ({ goal }) => {
         setJournal(res.data)
     };
 
+    const handleDelete = async () => {
+         await Client.delete(`/goal/${id}`);
+         setEditTrigger(prev => prev + 1); 
+        return navigate('/goal')
+    }
+
     useEffect(() => {
         getGoals();
         getJournal();
-    }, [id])
+    }, [id, editTrigger])
 
     return goals ? (
         <div>
@@ -34,7 +42,8 @@ const GoalDetail = ({ goal }) => {
             <div key={goals.id} className='location-card'>
                 <h2>{goals.location}</h2>
                 <h3>{goals.date}</h3>
-                <img className="location-image" src={goals.picture} alt={goals.location} />
+                <img className="location-image" src={goals.picture} alt={goals.location}/>
+                <button onClick={handleDelete}>Delete Dream Destination</button>
                 <br />
                 <JournalForm getJournal={getJournal} />
                 {journal.goalJournal ? (journal.goalJournal.map((journal) => (
