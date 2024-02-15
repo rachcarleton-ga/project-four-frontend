@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
 const Nav = ({ user, handleLogOut }) => {
+
+  
   let userOptions
   if (user) {
     userOptions = (
