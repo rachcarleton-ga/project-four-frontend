@@ -10,6 +10,7 @@ import Goal from './components/Goal'
 import GoalDetail from './components/GoalDetail'
 import ArrivedDetail from './components/ArrivedDetail'
 import Client from './services/api'
+import Footer from './components/Footer'
 import Journal from './components/JournalForm'
 import './App.css'
 
@@ -77,6 +78,7 @@ function App() {
           <Route path="/goal/:id" element={<GoalDetail goal={goal}/>}/>
         </Routes>
        </main>
+       <Footer />
       </div>
    
   )

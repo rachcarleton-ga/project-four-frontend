@@ -34,4 +34,5 @@ Destination Wanderlust is a full stack MERN application with full CRUD operation
 - Node.js
 
 **_Credits_**
-[]()
+[Globe icon](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Internet-web-browser.svg/2048px-Internet-web-browser.svg.png)
+[Background image](https://www.pexels.com/photo/white-clouds-on-blue-sky-19670/)

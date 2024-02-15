@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-
+import travelImage from '../images/travelImage.jpg'
 
 const Home = ({ user}) => {
   let navigate = useNavigate()
@@ -14,9 +14,7 @@ const Home = ({ user}) => {
         </h3>
 
       <section className="welcome-signin">
-        <button onClick={() => navigate('/signin')}>
-          Click Here To Get Started
-        </button>
+        <img src={travelImage} alt="travel image" className="travel-image"></img>
       </section>
     </div>
   )

@@ -5,6 +5,97 @@
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(0, 36, 0, 1);
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  font-size: 2vw;
+}
+
+.travel-image {
+  max-width: 100%;
+  margin-top: 10vmin;
+  height: auto;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: rgba(0, 36, 0, 1);
+    text-align: center;
+    padding: 10px;
+}
+
+.signin-container, .register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.signin-form, .register-form {
+  width: 300px; 
+  padding: 20px;
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-overlay {
+ 
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-wrapper {
+  margin-bottom: 15px;
+}
+
+.input-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.signin-button {
+  background: linear-gradient(144deg, #ece2d0, #af7595 50%, #6cbeed);
+  color: #fff;
+  border-radius: 8px;
+  padding: 16px !important;
+}
+
+  .signin-button:hover {
+    background: #af7595;
+    color: rgb(255, 255, 255);
+    padding: 16px !important;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
 .card {
   padding: 2em;
 }
@@ -16,7 +107,7 @@
 .navigation {
   width: 100%;
   height: 40px;
-  background-color:rgba(230, 131, 135, 0.5);
+  background-color:rgba(108, 190, 237, 0.5);;
   position: relative;
 }
 
@@ -32,7 +123,7 @@
 }
 
 .nav-link:hover {
-  color: rgb(93, 93, 116);
+  color: rgba(0, 36, 0, 0.5);
 }
 
 /* styles for the hamburger menu */
@@ -91,7 +182,7 @@
   .nav-link {
       padding: 1em;
       text-align: center;
-      color: black;
+      color: rgba(0, 36, 0, 1);
       text-decoration: none;
       cursor: pointer;
   }

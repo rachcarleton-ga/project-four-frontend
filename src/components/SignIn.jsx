@@ -22,9 +22,9 @@ const SignIn = (props) => {
   }
 
   return (
-    <div className="signin col">
+    <div className="signin-container">
       <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+        <form className="signin-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
             <input
@@ -46,7 +46,7 @@ const SignIn = (props) => {
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          <button className="signin-button" disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
         </form>

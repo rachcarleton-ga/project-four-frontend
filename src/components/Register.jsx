@@ -34,9 +34,9 @@ const Register = () => {
   }
 
   return (
-    <div className="signin col">
+    <div className="register-container">
       <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+        <form className="register-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="userName">Name</label>
             <input
@@ -80,14 +80,14 @@ const Register = () => {
               required
             />
           </div>
-          <button
+          <button className="signin-button"
             disabled={
               !formValues.email ||
               (!formValues.password &&
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Sign In
+            Create Account
           </button>
         </form>
       </div>
