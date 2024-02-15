@@ -68,7 +68,7 @@ function App() {
        />
        <main>
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<Home user={user}/>}/>
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived arrived={arrived} getArrived={getArrived} /> }/>

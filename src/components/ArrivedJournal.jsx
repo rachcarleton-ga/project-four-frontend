@@ -1,0 +1,107 @@
+import { useState, useEffect } from 'react'
+import Client from '../services/api';
+import { useParams } from 'react-router-dom';
+
+const ArrivedJournal = ({journal}) => { 
+    const [journalToBeEdited, setJournalToBeEdited] = useState({});
+    const [editMode, setEditMode] = useState(false);
+    const [editedJournal, setEditedJournal] = useState({ date: "", diary: ""});
+    const {id } = useParams();
+    
+    const getJournal = async () => {
+        let res = await Client.get(`/journal/arrived/${id}`);
+        setJournalToBeEdited(res.data)
+      };
+  
+    const handleDelete = async (journalId) => {
+        try {
+            await Client.delete(`/journal/arrived/${journalId}`);
+            const updatedJournals = journal.arrivedJournal.filter(journal => journal._id !== journalId)
+            setJournalToBeEdited({arrivedJournal: updatedJournals})
+        } catch (error) {
+            console.error("Error deleting journal entry", error)
+        }
+    };
+
+    const handleEdit = (journalId) => {
+        try { 
+            setEditMode((prevEditMode) => !prevEditMode)
+            let edit = {
+                picture: journal.picture,
+                date: journal.date,
+                diary: journal.diary,
+            }
+            setJournalToBeEdited( edit )
+        } catch (error) {
+            console.error("Error completing edit:", error)
+        }
+       
+    };
+    
+    const handleChange = () => {
+        setEditMode(true)
+        setEditedJournal({
+            date: journal.date,
+            diary: journal.diary,
+            picture: journal.picture,
+        })
+    }
+
+    const handleSave = async (journalId) => {
+            const res = await Client.put(`/journal/arrived/${journalId}`, {
+                picture: journalToBeEdited.picture,
+                date: journalToBeEdited.date,
+                diary: journalToBeEdited.diary,
+            })
+            .then((res)=> {
+                setEditMode(false)
+                setTimeout(()=>getJournal(), 1000)
+                console.log(journalToBeEdited)
+            })
+    }
+
+
+    return (
+<div>
+    <img className="journal-image" src={journal.picture} />
+    {journal.date}
+    {journal.diary}
+          {editMode ? (
+            <>
+            <input
+                type="text"
+                value={journalToBeEdited.picture}
+                onChange={(e) =>
+                  setJournalToBeEdited({ ...journalToBeEdited, picture: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                value={journalToBeEdited.date}
+                onChange={(e) =>
+                  setJournalToBeEdited({ ...journalToBeEdited, date: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                value={journalToBeEdited.diary}
+                onChange={(e) =>
+                  setJournalToBeEdited({ ...journalToBeEdited, diary: e.target.value })
+                }
+              />
+              <button onClick={() => handleSave(journal._id)}>Save</button>
+              <button onClick={() => handleEdit(journal._id)}>Cancel</button>
+            </>
+          ) : (
+        <>
+          <button onClick={() => handleEdit(journal._id)}>Edit</button>
+          <button onClick={() => handleDelete(journal._id)}>Delete</button>
+        </>
+          
+        )}
+        </div>
+  )
+}
+
+
+export default ArrivedJournal
