@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import JournalForm from "./JournalForm";
 import ArrivedJournal from "./ArrivedJournal";
 
-const ArrivedDetail = ( {arrived }) => {
+const ArrivedDetail = ({ arrived }) => {
     const [arrive, setArrive] = useState(null);
     const [journal, setJournal] = useState([]);
     let { id } = useParams()
@@ -22,8 +22,8 @@ const ArrivedDetail = ( {arrived }) => {
     const getJournal = async () => {
         let res = await Client.get(`/journal/arrived/${id}`);
         setJournal(res.data)
-      };
-    
+    };
+
     useEffect(() => {
         getArrive();
         getJournal();
@@ -33,16 +33,16 @@ const ArrivedDetail = ( {arrived }) => {
         <div>
             <h1>Details</h1>
             <div key={arrive.id} className="location-card">
-            <h2>{arrive.location}</h2>
-            <h3>{arrive.date}</h3>
-            <img className="location-image" src={arrive.picture} alt={arrive.location} />
-            <br />
+                <h2>{arrive.location}</h2>
+                <h3>{arrive.date}</h3>
+                <img className="location-image" src={arrive.picture} alt={arrive.location} />
+                <br />
             </div>
-            <JournalForm getJournal={getJournal}/>
+            <JournalForm getJournal={getJournal} />
             {console.log(journal.arrivedJournal)}
-            {journal.arrivedJournal ? (journal.arrivedJournal.map((journal)=>(
+            {journal.arrivedJournal ? (journal.arrivedJournal.map((journal) => (
                 <ArrivedJournal setEditTrigger={setEditTrigger} journal={journal} />
-            ))): <p> No journal entries found</p> }
+            ))) : <p> No journal entries found</p>}
         </div>
     ) : null;
 };

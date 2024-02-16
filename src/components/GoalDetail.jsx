@@ -35,17 +35,16 @@ const GoalDetail = ({ goal }) => {
             <div key={goals.id} className='location-card'>
                 <h2>{goals.location}</h2>
                 <h3>{goals.date}</h3>
-                <img className="location-image" src={goals.picture} alt={goals.location}/>
+                <img className="location-image" src={goals.picture} alt={goals.location} />
                 <br />
-                </div>
-                <GoalJournalForm getJournal={getJournal} />
-                {console.log(journal.goalJournal)}
-                {journal.goalJournal ? (journal.goalJournal.map((journal) => (
-                    <GoalJournal setEditTrigger={setEditTrigger} journal={journal} />
-                ))): <p> No journal entries found</p> }
+            </div>
+            <GoalJournalForm getJournal={getJournal} />
+            {console.log(journal.goalJournal)}
+            {journal.goalJournal ? (journal.goalJournal.map((journal) => (
+                <GoalJournal setEditTrigger={setEditTrigger} journal={journal} />
+            ))) : <p> No journal entries found</p>}
         </div>
     ) : null;
 };
-
 
 export default GoalDetail

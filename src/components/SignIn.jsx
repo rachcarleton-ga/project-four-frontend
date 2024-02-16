@@ -2,11 +2,8 @@ import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-
 const SignIn = (props) => {
-  
   let navigate = useNavigate()
-
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
@@ -27,24 +24,11 @@ const SignIn = (props) => {
         <form className="signin-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
+            <input onChange={handleChange} name="email" type="email" placeholder="example@example.com" value={formValues.email} required/>
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
+            <input onChange={handleChange} type="password" name="password" value={formValues.password} required/>
           </div>
           <button className="signin-button" disabled={!formValues.email || !formValues.password}>
             Sign In

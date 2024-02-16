@@ -15,8 +15,9 @@ import Journal from './components/JournalForm'
 import './App.css'
 
 function App() {
-  
   const [user, setUser] = useState(null)
+  const [arrived, setArrived] = useState(null);
+  const [goal, setGoal] = useState(null);
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -25,7 +26,6 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-
     if (token) {
       checkToken()
     }
@@ -36,8 +36,6 @@ function App() {
     localStorage.clear()
   }
 
-  const [arrived, setArrived] = useState(null);
-
   const getArrived = async () => {
       let res = await Client.get(`/arrived/`);
       setArrived(res.data);
@@ -46,9 +44,6 @@ function App() {
   useEffect(() => {
       getArrived();
   }, [])
-
-
-  const [goal, setGoal] = useState(null);
 
   const getGoal = async () => {
       let res = await Client.get(`/goal/`);
@@ -59,9 +54,7 @@ function App() {
       getGoal();
   }, [])
 
-
   return (
-
       <div className='App'>
        <Nav 
        user={user}
