@@ -28,7 +28,7 @@ const SignIn = (props) => {
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input onChange={handleChange} type="password" name="password" value={formValues.password} required/>
+            <input onChange={handleChange} type="password" name="password" placeholder="1234password" value={formValues.password} required/>
           </div>
           <button className="signin-button" disabled={!formValues.email || !formValues.password}>
             Sign In

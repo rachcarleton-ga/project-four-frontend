@@ -38,7 +38,7 @@ const Register = () => {
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="userName">Name</label>
-            <input onChange={handleChange} name="userName" type="text" placeholder="John Smith" value={formValues.userName} required/>
+            <input onChange={handleChange} name="userName" type="text" placeholder="John" value={formValues.userName} required/>
           </div>
           <div className="input-wrapper">
             <label htmlFor="email">Email</label>
@@ -46,11 +46,11 @@ const Register = () => {
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input onChange={handleChange} type="password" name="password" value={formValues.password} required/>
+            <input onChange={handleChange} type="password" placeholder="1234password" name="password" value={formValues.password} required/>
           </div>
           <div className="input-wrapper">
             <label htmlFor="confirmPassword">Confirm Password</label>
-            <input onChange={handleChange} type="password" name="confirmPassword" value={formValues.confirmPassword} required/>
+            <input onChange={handleChange} type="password" placeholder="1234password" name="confirmPassword" value={formValues.confirmPassword} required/>
           </div>
           <button className="signin-button"
             disabled={
