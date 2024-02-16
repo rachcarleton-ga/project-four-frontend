@@ -4,7 +4,7 @@ import { useState} from 'react'
 import Client from "../services/api"
 
 
-const JournalForm = (props) => {
+const GoalJournalForm = (props) => {
     let navigate = useNavigate()
     let {id} =useParams()
     
@@ -16,9 +16,9 @@ const JournalForm = (props) => {
     
     const handleSubmit = async(e) => {
       e.preventDefault()
-      let res = await Client.post(`/journal/arrived/${id}`, newJournal)
+      let res = await Client.post(`/journal/goal/${id}`, newJournal)
       props.getJournal()
-      navigate(`/arrived/${id}`)
+      navigate(`/goal/${id}`)
       
       setNewJournal({
           picture: '',
@@ -71,10 +71,5 @@ const JournalForm = (props) => {
 
     
 }
-export default JournalForm
-
-
-
-
-
+export default GoalJournalForm
 

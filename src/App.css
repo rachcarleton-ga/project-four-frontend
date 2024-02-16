@@ -44,14 +44,39 @@ body {
   transform: scale(1.01);
 }
 
-.location-card, .location-image {
+.location-card, .location-image, .journal-image {
   width: 100%;
   height: 100%;
   object-fit: center;
   box-shadow: inset 0 0 1em rgb(0, 0, 0);
 }
 
-.location-image {
+.journal-entry-card {
+  padding: 1em;
+  width: 18em;
+  height: 15em;
+  background-color: #af7595;
+  border-radius: 0.5em;
+  margin: 1em;
+  justify-content: space-around;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.527);
+  color: white;
+  font-family: 'Georgia';
+  cursor: pointer;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.journal-entry-card {
+  width: 50%;
+  height: 50%;
+  object-fit: center;
+  color: black;
+  box-shadow: inset 0 0 1em rgb(0, 0, 0);
+}
+
+.location-image, .journal-image {
   display: block;
 }
 
@@ -60,9 +85,30 @@ body {
   align-items: center;
 }
 
-.airplane {
-  flex-shrink: 10%;
+.airplane-icon {
+  width: 26px;
+  height: 24px;
+  margin-right: 8px;
 }
+
+.globe-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.passport-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.luggage-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
 .travel-image {
   max-width: 100%;
   margin-top: 10vmin;
@@ -135,7 +181,7 @@ body {
 }
 
   .signin-button:hover {
-    background: #af7595;
+    background: #6cbeed;
     color: rgb(255, 255, 255);
     padding: 16px !important;
     cursor: pointer;

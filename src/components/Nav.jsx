@@ -1,5 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import airplaneIcon from '../images/airplaneIcon.png'
+import earthIcon from '../images/earthIcon.png'
+import passportIcon from '../images/passportIcon.png'
+import luggageIcon from '../images/luggageIcon.png'
 
 const Nav = ({ user, handleLogOut }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,21 +27,22 @@ const Nav = ({ user, handleLogOut }) => {
       <>
         <NavLink to="/" className="nav-link" 
         onClick={closeMenu}>
+          <img src={earthIcon} alt="Earth Icon" className="globe-icon"/>
           Destination Wanderlust
           </NavLink>
         <NavLink to="/arrived" className="nav-link"
          onClick={closeMenu}>
+            <img src={passportIcon} alt="Passport Icon" className="passport-icon"/>
                 <h4>Explored Destinations </h4>
             </NavLink>
             <NavLink to="/goal" className="nav-link" 
             onClick={closeMenu}>
-                <svg xmlns="https://image.shutterstock.com/image-vector/airplane-icon-vector-transportation-logo-260nw-1283834365.jpg" width="24" height="24" fill="currentColor" class="airplane" viewBox="0 0 16 16">
-          <path d="M8 .576l1.82 4.405h4.665l-3.573 2.925 1.82 4.405-3.664-2.85L4.488 16 8 13.258l3.512 2.742-.437-1.067-3.665-2.85-3.572 2.925H1.515L3.334.576z"/>
-        </svg>
+              <img src={airplaneIcon} alt="Airplane Icon" className="airplane-icon"/>
                 <h4>Dream Destinations </h4>
             </NavLink>
         <NavLink to="/" className="nav-link" 
         onClick={handleLogOutAndCloseMenu}>
+          <img src={luggageIcon} alt="Luggage Icon" className="luggage-icon"/>
           Sign Out
         </NavLink>
       </>

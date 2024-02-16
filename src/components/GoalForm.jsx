@@ -31,10 +31,10 @@ const GoalForm = (props) => {
 
   return (
     <div className="journal-form-container">
-    <h3>Add A New Dream Destination</h3>
     <div className="journal-container">
-      <div className="journal-card-overlay">
+    <div className="journal-card-overlay">
     <form className="signin-form" onSubmit={ handleSubmit }>
+    <h3>Add A New Dream Destination</h3>
       <div className="input-wrapper">
       <input 
       type="text" 
@@ -48,7 +48,7 @@ const GoalForm = (props) => {
       <input 
       type="text" 
       value={newGoal.date} 
-      onChange={ handleChange} 
+      onChange={handleChange} 
       name='date' 
       placeholder='date' 
       />

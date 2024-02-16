@@ -60,10 +60,12 @@ const GoalJournal = ({journal, setEditTrigger}) => {
     }
 
     return (
-<div>
+<div className="journal-entry-card">
     <img className="journal-image" src={journal.picture} />
     {journal.date}
+    <br/>
     {journal.diary}
+    <br />
           {editMode ? (
             <>
             <input
@@ -87,15 +89,14 @@ const GoalJournal = ({journal, setEditTrigger}) => {
                   setJournalToBeEdited({ ...journalToBeEdited, diary: e.target.value })
                 }
               />
-              <button onClick={() => handleSave(journal._id)}>Save</button>
-              <button onClick={() => handleEdit(journal._id)}>Cancel</button>
+              <button className="signin-button" onClick={() => handleSave(journal._id)}>Save</button>
+              <button className="signin-button" onClick={() => handleEdit(journal._id)}>Cancel</button>
             </>
           ) : (
         <>
-          <button onClick={() => handleEdit(journal._id)}>Edit</button>
-          <button onClick={() => handleDelete(journal._id)}>Delete</button>
-        </>
-          
+          <button className="signin-button" onClick={() => handleEdit(journal._id)}>Edit</button>
+          <button className="signin-button" onClick={() => handleDelete(journal._id)}>Delete</button>
+        </>    
         )}
         </div>
   )

@@ -31,10 +31,10 @@ const ArrivedForm = (props) => {
 
   return (
     <div className="journal-form-container">
-    <h3>Add A New Explored Destination</h3>
     <div className="journal-container">
     <div className="journal-card-overlay">
     <form className="signin-form" onSubmit={ handleSubmit }>
+    <h3>Add A New Explored Destination</h3>
     <div className="input-wrapper">
       <input 
       type="text" 
@@ -48,7 +48,7 @@ const ArrivedForm = (props) => {
       <input 
       type="text" 
       value={newArrived.date} 
-      onChange={ handleChange} 
+      onChange={handleChange} 
       name='date' 
       placeholder='date' 
       />
