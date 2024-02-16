@@ -2,7 +2,7 @@
 
 #### Date: 2/6/2024
 
-[Live site]() deployed on Heroku 
+[Live site](https://destination-wanderlust.vercel.app/) deployed on Vercel 
 
 #### By Rachel Carleton [GitHub](https://github.com/rachcarleton-ga), [Linkedin](https://www.linkedin.com/in/rachcarleton/) 
 
@@ -42,10 +42,10 @@ Destination Wanderlust is a full stack MERN application with full CRUD operation
 - In your backend repo, create a .env file 
 
 **_Credits_**
-[Globe browser icon ](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Internet-web-browser.svg/2048px-Internet-web-browser.svg.png)
-[Background image](https://www.pexels.com/photo/white-clouds-on-blue-sky-19670/)
-[Airplane icon](https://www.cleanpng.com/png-airplane-icon-a5-computer-icons-flight-airplane-1186462/download-png.html)
-[Globe nav bar icon](https://www.flaticon.com/free-icon/earth_44386)
-[Passport icon](https://www.flaticon.com/free-icon/passport_3416538)
-[Luggage icon](https://www.flaticon.com/free-icon/luggage_3029874)
-[Register icon](https://uxwing.com/new-registration-icon/)
+- [Globe browser icon ](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Internet-web-browser.svg/2048px-Internet-web-browser.svg.png)
+- [Background image](https://www.pexels.com/photo/white-clouds-on-blue-sky-19670/)
+- [Airplane icon](https://www.cleanpng.com/png-airplane-icon-a5-computer-icons-flight-airplane-1186462/download-png.html)
+- [Globe nav bar icon](https://www.flaticon.com/free-icon/earth_44386)
+- [Passport icon](https://www.flaticon.com/free-icon/passport_3416538)
+- [Luggage icon](https://www.flaticon.com/free-icon/luggage_3029874)
+- [Register icon](https://uxwing.com/new-registration-icon/)
