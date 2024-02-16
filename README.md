@@ -34,6 +34,12 @@ Destination Wanderlust is a full stack MERN application with full CRUD operation
 - Node.js
 
 **_Getting Started_**
+- Fork and copy this repo
+- Fork and copy the [Backend](https://github.com/rachcarleton-ga/Project-four-backend) repo
+- Run the following commands in your front and backend terminals:
+    - Run npm i 
+    - Run npm run dev
+- In your backend repo, create a .env file 
 
 **_Credits_**
 [Globe browser icon ](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Internet-web-browser.svg/2048px-Internet-web-browser.svg.png)

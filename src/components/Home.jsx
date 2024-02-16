@@ -6,6 +6,7 @@ const Home = ({ user }) => {
 
   return (
     <div className="home-container ">
+      <br />
       <h1>
         Welcome to Destination Wanderlust {user?.userName}!
       </h1>
