@@ -17,6 +17,7 @@ const Arrived = ({ arrived, getArrived }) => {
 
     return (
         <div>
+            <br />
             <h1>
                 Welcome to the destinations you have already explored!
             </h1>

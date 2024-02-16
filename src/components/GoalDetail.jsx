@@ -31,6 +31,7 @@ const GoalDetail = ({ goal }) => {
 
     return goals ? (
         <div>
+            <br />
             <h1>Details</h1>
             <div key={goals.id} className='location-card'>
                 <h2>{goals.location}</h2>

@@ -17,6 +17,7 @@ const Goal = ({ goal, getGoal }) => {
 
     return (
         <div>
+            <br />
             <h1>
                 Welcome to your dream destinations!
             </h1>

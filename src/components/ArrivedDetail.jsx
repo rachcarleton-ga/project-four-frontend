@@ -31,7 +31,8 @@ const ArrivedDetail = ({ arrived }) => {
 
     return arrive ? (
         <div>
-            <h1>Details</h1>
+            <br />
+            <h1>Welcome to the destinations you have already explored!</h1>
             <div key={arrive.id} className="location-card">
                 <h2>{arrive.location}</h2>
                 <h3>{arrive.date}</h3>

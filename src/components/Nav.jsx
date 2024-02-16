@@ -4,6 +4,7 @@ import airplaneIcon from '../images/airplaneIcon.png'
 import earthIcon from '../images/earthIcon.png'
 import passportIcon from '../images/passportIcon.png'
 import luggageIcon from '../images/luggageIcon.png'
+import registerIcon from '../images/registerIcon.png'
 
 const Nav = ({ user, handleLogOut }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,11 +53,17 @@ const Nav = ({ user, handleLogOut }) => {
   const publicOptions = (
     <>
       <NavLink to="/" className="nav-link"
-        onClick={closeMenu}>Destination Wanderlust</NavLink>
+        onClick={closeMenu}>
+                    <img src={earthIcon} alt="Earth Icon" className="globe-icon" />
+          Destination Wanderlust</NavLink>
       <NavLink to="/register" className="nav-link"
-        onClick={closeMenu}>Register</NavLink>
+        onClick={closeMenu}>
+                    <img src={registerIcon} alt="Register Icon" className="globe-icon" />
+          Register</NavLink>
       <NavLink to="/signin" className="nav-link"
-        onClick={closeMenu}>Sign In</NavLink>
+        onClick={closeMenu}>
+                    <img src={luggageIcon} alt="Luggage Icon" className="luggage-icon" />
+          Sign In</NavLink>
     </>
   )
 
