@@ -13,7 +13,7 @@ const Arrived = ({ arrived, getArrived }) => {
 
     useEffect(() => {
         getArrived();
-    }, [editTrigger, getArrived])
+    }, [editTrigger])
 
     return (
         <div>

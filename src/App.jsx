@@ -38,6 +38,7 @@ function App() {
 
   const getArrived = async () => {
       let res = await Client.get(`/arrived/`);
+      
       setArrived(res.data);
   };
       
@@ -46,9 +47,12 @@ function App() {
   }, [])
 
   const getGoal = async () => {
-      let res = await Client.get(`/goal/`);
-      setGoal(res.data);
+    let res = await Client.get(`/goal/`);
+    const myGoals = res.data.filter(goal => goal?.user === user?.id);
+      setGoal(myGoals);
   };
+  console.log('user._id = ' , user?._id)
+  console.log('user.id = ' , user?.id)
       
   useEffect(() => {
       getGoal();
@@ -66,7 +70,7 @@ function App() {
           <Route path="/signin" element={<SignIn setUser={setUser}/>}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/arrived" element={<Arrived arrived={arrived} getArrived={getArrived} /> }/>
-          <Route path="/goal" element={<Goal goal={goal} getGoal={getGoal}/>}/>
+          <Route path="/goal" element={<Goal user={user} goal={goal} getGoal={getGoal}/>}/>
           <Route path="/arrived/:id" element={<ArrivedDetail arrived={arrived}/>}/>
           <Route path="/goal/:id" element={<GoalDetail goal={goal}/>}/>
         </Routes>

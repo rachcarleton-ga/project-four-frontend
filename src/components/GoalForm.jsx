@@ -2,22 +2,24 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import Client from "../services/api"
 
-const GoalForm = (props) => {
+const GoalForm = ({user, getGoal}) => {
   let navigate = useNavigate()
-
+  
   const [newGoal, setNewGoal] = useState({
+    user: user?.id,
     location: '',
     date: '',
     picture: '',
   })
-
+console.log(user?.id)
   const handleSubmit = async (e) => {
     e.preventDefault()
     let res = await Client.post('/goal', newGoal)
-    props.getGoal()
+    getGoal()
     navigate('/goal')
 
     setNewGoal({
+      user: user?.id,
       location: '',
       date: '',
       picture: '',
@@ -38,7 +40,7 @@ const GoalForm = (props) => {
               <input type="text" value={newGoal.location} onChange={handleChange} name='location' placeholder='location'/>
             </div>
             <div className="input-wrapper">
-              <input type="text" value={newGoal.date} onChange={handleChange} name='date' placeholder='date'/>
+              <input type="text" value={newGoal.date} onChange={handleChange} name='date' placeholder='goal date'/>
             </div>
             <div className="input-wrapper">
               <input type="text" value={newGoal.picture} onChange={handleChange} name='picture' placeholder='picture'/>

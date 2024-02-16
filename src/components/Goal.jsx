@@ -3,7 +3,7 @@ import GoalForm from './GoalForm'
 import Client from '../services/api'
 import { useState, useEffect } from 'react'
 
-const Goal = ({ goal, getGoal }) => {
+const Goal = ({ goal, getGoal, user }) => {
     const [editTrigger, setEditTrigger] = useState(0);
 
     const handleDelete = async (id) => {
@@ -13,7 +13,7 @@ const Goal = ({ goal, getGoal }) => {
 
     useEffect(() => {
         getGoal();
-    }, [editTrigger, getGoal])
+    }, [editTrigger])
 
     return (
         <div>
@@ -22,7 +22,7 @@ const Goal = ({ goal, getGoal }) => {
                 Welcome to your dream destinations!
             </h1>
             <br />
-            <GoalForm getGoal={getGoal} />
+            <GoalForm getGoal={getGoal} user={user} />
             {goal && goal.map(goals => (
                 <div className='location-card' key={goals.id}>
                     <NavLink to={`${goals._id}`}>
